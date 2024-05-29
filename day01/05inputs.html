@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>입력양식 태그</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    
+</head>
+<body>
+    <h3>회원가입</h3>
+    <hr>
+    <form method="get"> <!-- 입력양식 태그 사용시에는 반드시 필요! -->
+        <fieldset>
+            <input type="text" name="id" value="test"><br>
+            <input type="password" name="pass" value="12345"><br> 
+        </fieldset> 
+        
+        <input type="file" name="UploadFile"><br>
+        <input type="checkbox" name="male" value="남자"> 남자
+        <input type="checkbox" name="female" value="여자"> 여자<br>
+        <input type="radio" name="fruit" value="사과"> 사과 
+        <input type="radio" name="fruit" value="딸기"> 딸기<br>
+        <input type="hidden" name="Secret" value="ヾ(￣▽￣) Bye~Bye~"><br>
+        <input type="image" src="https://via.placeholder.com/320x200"><br>
+        <input type="color" name="selcolor"><br>
+        <input type="date" name="currdate"><br>
+        <input type="number" name="salary"><br>
+
+        <select name = "fruit" multiple="multiple">
+            <option value = "None">-- 먹고싶은 과일 --</option>
+            <optgroup label="기본">
+                <option value = "블루베리">블루베리</option>
+                <option value = "오렌지">오렌지</option>
+                <option value = "파파야">파파야</option>
+                <option value = "체리">체리</option>
+                <option  value = "바나나">바나나</option>
+            </optgroup>
+            <optgroup label="주류">
+                <option value = "위스키">위스키</option>
+                <option value = "꼬냑">꼬냑</option>
+                <option value = "하이볼">하이볼</option>
+                <option value = "소주">소주</option>
+                <option  value = "맥주">맥주</option>
+            </optgroup>
+        </select><br><br>
+
+        <input type="button" value="일반버튼"><br><br>
+        <input type="reset" value="전체 입력 초기화"><br><br>
+
+        <input type="submit">
+    </form><br>
+
+    <!-- 공간구성 -->
+    <div>DIV TAG 1</div>
+    <div>DIV TAG 2</div>
+    <div>DIV TAG 3</div>
+    <div>DIV TAG 4</div>
+
+    <div>
+        <span>SPAN TAG 1</span>
+        <span>SPAN TAG 2</span>
+        <span>SPAN TAG 3</span>
+        <span>SPAN TAG 4</span>
+    </div>
+</body>
+</html>
