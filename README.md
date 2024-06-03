@@ -151,6 +151,7 @@
 - HTML5 
     - 시맨틱 웹 : 특정 태그에 의미를 부여한 웹, 프로그램이 코드를 읽고 의미를 인식할 수 있는 지능형 웹
     - 시맨틱 태그
+    
     ![시맨틱](https://raw.githubusercontent.com/hyeily0627/Basic-ASP.Net-2024/main/images/tag.png)
 
     - 시맨틱 태그를 div로 바꿔도 똑같이 동작하기 때문에 요즘은 많이 사용하지 않음
