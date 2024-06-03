@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>js dom</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        '1번으로 실행'
+    </script>
+</head>
+<body>
+    <!-- 2번으로 랜더링 -->
+    <h1>(oﾟvﾟ)ノ Hello !</h1>
+    <h2>Welcome to HTML5</h2>
+   
+   <script> 
+        // 3번으로 실행
+        // dom 객체 접근 시도 
+        // css background-color와 동일
+        /*
+            h1{
+                background-color : red;
+            }
+        */
+        document.querySelector('h1').style.backgroundColor = 'hotpink'
+        document.querySelector('h2').style.backgroundColor = 'pink'
+        document.querySelector('h1').style.color = document.querySelector('h2').style.color = 'beige'   
+
+    </script>
+</body>
+</html>

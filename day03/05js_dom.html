@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>js dom</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        // 페이지가 모두 로드된 후 실행 
+        window.onload = function() {
+            var output = '';
+            for(var i = 0; i < 256 ; i ++) {
+                output += '<div></div>';
+            }
+            // 아래는 필요시 주석 해제하기^_____^
+            // document.body.innerHTML = output;
+
+            // 그라데이션 색상 페이지 
+            var divs = document.querySelectorAll('div');
+            for(var i = 0; i < divs.length ; i ++) {
+                var div = divs[i];
+                div.style.height = '5px';
+                //div.style.backgroundColor = 'rgb(' + i + ',' + i + ',' + i + ')'
+                div.style.backgroundColor = 'rgb(' + Math.floor(Math.random() * i) + ','
+                                                   + Math.floor(Math.random() * i) + ','
+                                                   + Math.floor(Math.random() * i) + ')'; 
+            }
+
+            // 이미지 태그 조작 
+            var image = document.getElementById('image');
+            image.width = 300;
+            image.height = 200; 
+            image.src = 'https://via.placeholder.com/' + image.width + 'x' + image.height; 
+            
+            var mydiv = document.querySelector('div');
+            console.log(typeof(mydiv)); // object 넘어옴
+            console.log(mydiv.getAttribute('data-role')); // test 넘어옴 
+            console.log(mydiv.getAttribute('style')); //height: 5px; background-color: rgb(0, 0, 0);
+            
+            // 속성 바꾸기
+            mydiv.setAttribute('style','height: 25px; background-color: rgb(255, 255, 0);')
+            
+            // clock 객체 선택
+            let clock = document.getElementById('clock');
+            setInterval(function() {
+                var now = new Date();
+                clock.innerHTML = now.toString(); 
+            }, 1000);
+        }
+    </script>
+</head>
+<body>
+    <img id = 'image'>
+    <div data-role="test"></div>
+    <h2 id = 'clock'>시계는 아침부터 똑딱똑딱:O</h2>
+</body>
+</html>

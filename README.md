@@ -149,10 +149,85 @@
     
 ## 2일차
 - HTML5 
+    - 시맨틱 웹 : 특정 태그에 의미를 부여한 웹, 프로그램이 코드를 읽고 의미를 인식할 수 있는 지능형 웹
     - 시맨틱 태그
+    ![시맨틱](https://raw.githubusercontent.com/hyeily0627/Basic-ASP.Net-2024/main/images/시맨틱태그.png)
 
-- CSS3 
+    - 시맨틱 태그를 div로 바꿔도 똑같이 동작하기 때문에 요즘은 많이 사용하지 않음
+
+- 참고❗: 한줄로 코드 써야 메모리 절약(스페이스 하나당 1byte)
+
+- CSS3 (Cascading Style Sheet)
     - 웹디자인 핵심
+    - 상단에서부터(<body>)부터 하위 태그들에 대해 계속 적용되는 스타일
+    - 선택자 : 선택자에게 주어지는 디자인 속성
+        -  선택자 { 키:값; 키:값; 키:값; } => h1 { color : red ; } 
+    ![선택자](https://raw.githubusercontent.com/hyeily0627/Basic-ASP.Net-2024/main/images/선택자.png)
+    ![선택자종류](https://raw.githubusercontent.com/hyeily0627/Basic-ASP.Net-2024/main/images/선택자종류.png)   
+    ![박스속성](https://raw.githubusercontent.com/hyeily0627/Basic-ASP.Net-2024/main/images/박스속성.png)   
+    
+    - 속성(property)
+    - 배경, 폰트 ...
+    - 레이아웃
+        - HTML 만으로는 화면 레이아웃이 만들어지지 않음
+        - 중앙정렬, 원트루, 고정바...
+    - 반응형 웹(Responsive Web)
+        - 메타태그 viewport를 사용하면 그때부터 반응형 웹이 됨!!
+        ```html
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        ```
+        - @media 태그 : 디바이스 종류별로 CSS 따로 디자인가능
 
-- JavaScript 
+## 3일차
+- JavaScript
+    - 스크립트 언어, ECMA Script
+    - 웹 브라우저 주로 사용
+    - 바닐라 스크립트 : 완벽하게 기본에 충실한 자바스크립트
+    - 기본적으로 클라이언트(웹 브라우저에서 프론트엔드에 표시) 베이스
+    - Node.js : 자바스크립트로 백엔드를 구현(파이썬과 유사) 
+    => 프론트엔드를 위해 구성되었으나 더 넘어서서 백엔드까지 영역 확장
+    - 특징
+        - 자료형 선언이 없음. var 변수 선언 
+        - 인터프리터 언어(not compile language)
+        - 확장자 .js
+        - 속도가 컴파일 언어에 비해서 느림 
+        - VS Code도 자바스크립트로 만든 앱
+        - 문장 끝 ;은 생략가능하지만 되도록이면 사용할 것! 
+        - 정수와 실수를 구분하지 않음 
+        - 파이썬과 동일하게 ' " 모두 사용 
+        - 완전히 동일함을 비교하는 === 연산자
+        - 변수 선언시 let(일반), var(지역변수), const(상수) 
 
+    - 문서객체 : 태그를 자바스크립트에서 사용할 수 있는 객체로 만든 것 
+        - '문서 객체를 조작' = 태그를 조작한다는 말! 
+        - '문서 객체를 선택 한다' = 이미 존재하는 HTML 태그를 자바스크립트에서 문서 객체로 변환 하는 것 
+        ![객체선택메서드](https://raw.githubusercontent.com/hyeily0627/Basic-ASP.Net-2024/main/images/객체선택메서드.png)
+
+    - DOM(Document Object Model) 
+        - Html에 있는 모든 요소를 제어할 수 있음 
+        - Html 애니메이션, 게임, 통신 모두 가능 
+        - 이벤트 on- 으로 시작 
+            - onload : 화면이 다 랜더링 되면 그 다음 발생 
+            - onfocus : 객체에 마우스를 클릭해서 포커스가 가면 발생
+            - onclick : 객체를 마우스로 클릭하면 발생 
+            - ondbclick : 더블 클릭
+            - onmousemove : 마우스를 이동하면 발생
+            - onmouseover : 객체위에 마우스가 올라가면 발생 
+            - onkeydown, onkeypress : 객체에서 키보드를 타이핑하면 발생 ... 
+    
+    - jQuery 
+        - 자바스크립트 라이브러리 https://jquery.com/ 
+        - 파일 다운로드 하지 않고 CDN 호스트 사용 
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        - js를 편하게 사용할 수 있도록 하는 서포트 라이브러리
+        - 사용빈도가 줄고 있지만, 아직도 80% 비중으로 웹사이트들이 사용
+    ![jquery](https://raw.githubusercontent.com/hyeily0627/Basic-ASP.Net-2024/main/images/jquery.png)
+    
+    ```html
+        <script>
+            $(document).ready(function(){
+                
+            });
+        </script>
+    ```
+    
