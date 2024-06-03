@@ -151,7 +151,7 @@
 - HTML5 
     - 시맨틱 웹 : 특정 태그에 의미를 부여한 웹, 프로그램이 코드를 읽고 의미를 인식할 수 있는 지능형 웹
     - 시맨틱 태그
-    
+
     ![시맨틱](https://raw.githubusercontent.com/hyeily0627/Basic-ASP.Net-2024/main/images/tag.png)
 
     - 시맨틱 태그를 div로 바꿔도 똑같이 동작하기 때문에 요즘은 많이 사용하지 않음
@@ -163,8 +163,11 @@
     - 상단에서부터(<body>)부터 하위 태그들에 대해 계속 적용되는 스타일
     - 선택자 : 선택자에게 주어지는 디자인 속성
         -  선택자 { 키:값; 키:값; 키:값; } => h1 { color : red ; } 
+
     ![선택자](https://raw.githubusercontent.com/hyeily0627/Basic-ASP.Net-2024/main/images/선택자.png)
+
     ![선택자종류](https://raw.githubusercontent.com/hyeily0627/Basic-ASP.Net-2024/main/images/선택자종류.png)   
+
     ![박스속성](https://raw.githubusercontent.com/hyeily0627/Basic-ASP.Net-2024/main/images/박스속성.png)   
     
     - 속성(property)
@@ -202,6 +205,7 @@
     - 문서객체 : 태그를 자바스크립트에서 사용할 수 있는 객체로 만든 것 
         - '문서 객체를 조작' = 태그를 조작한다는 말! 
         - '문서 객체를 선택 한다' = 이미 존재하는 HTML 태그를 자바스크립트에서 문서 객체로 변환 하는 것 
+
         ![객체선택메서드](https://raw.githubusercontent.com/hyeily0627/Basic-ASP.Net-2024/main/images/객체선택메서드.png)
 
     - DOM(Document Object Model) 
@@ -222,13 +226,51 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
         - js를 편하게 사용할 수 있도록 하는 서포트 라이브러리
         - 사용빈도가 줄고 있지만, 아직도 80% 비중으로 웹사이트들이 사용
-    ![jquery](https://raw.githubusercontent.com/hyeily0627/Basic-ASP.Net-2024/main/images/jquery.png)
+
+        ![jquery](https://raw.githubusercontent.com/hyeily0627/Basic-ASP.Net-2024/main/images/jquery.png)
     
-    ```html
-        <script>
-            $(document).ready(function(){
-                
-            });
-        </script>
-    ```
-    
+        ```html
+            <script>
+                $(document).ready(function(){
+                    
+                });
+            </script>
+        ```
+        
+## 4일차
+- Html + CSS + jsQuery 응용 
+    - jQuery 응용  
+    - javascript와 jQuery를 혼용해도 상관없음
+    - 각각 편할때가 따로 있기 때문! 
+- Bootstrap5 : 소스참고 https://getbootstrap.com/docs/5.3/components/buttons/
+    - 오픈소스 CSS 프레임 워크
+    - 트위터 블루프린트 -> 부트스트랩 
+    - 현재 전 세계에서 가장 각광받고 있는 프레임 워크 중 하나 
+    - CSS를 동작시키기 위해서 javascript도 포함
+    - 소스 다운로드(1) - 제한된 네트워크, CDN으로 링크사용(2)-인터넷에 항상 
+    연결된 환경  
+    - 핵심❗
+        - Bootstrap5은 화면 사이즈를 12등분 
+        - container 밑에 table 처럼 div를 구분해서 사용 
+        ```html
+        <div class="container text-center">
+            <div class="row">
+                <div class="col">
+                Column
+                </div>
+                <div class="col">
+                Column
+                </div>
+                <div class="col">
+                Column
+                </div>
+            </div>
+            </div>
+        ```
+        - 부트스트랩 학습에 시간을 들이는 것이 아님! copyleft가 정석 
+            - https://getbootstrap.com/docs/5.3/getting-started/introduction/
+            - https://getbootstrap.com/docs/5.3/examples/ 
+        - 무료테마(템플릿)이 아주 잘되어 있음 : https://getbootstrap.com/docs/5.3/examples/
+
+- 웹 페이지 클로닝(cloning)
+    - 
