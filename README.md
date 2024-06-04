@@ -270,7 +270,7 @@
         - 부트스트랩 학습에 시간을 들이는 것이 아님! copyleft가 정석 
             - https://getbootstrap.com/docs/5.3/getting-started/introduction/
             - https://getbootstrap.com/docs/5.3/examples/ 
-        - 무료테마(템플릿)이 아주 잘되어 있음 : https://getbootstrap.com/docs/5.3/examples/
+        - 무료테마(템플릿)이 아주 잘되어 있음 : https://getbootstrap.com/docs/5.3/examples/ 예제 보면서 따라 하기~! 1
 
 - 웹 페이지 클로닝(cloning)
     - 핀터레스트 타입 웹페이지 만들기(진행중~)
@@ -282,4 +282,11 @@
 
 
 https://github.com/hyeily0627/Basic-ASP.Net-2024/assets/156732476/fb4f16cd-092f-4e22-bab0-a808495371aa
+
+
+- https://www.youtube.com/@codehal 로그인창 웹페이지 튜토리얼 따라하기 
+    - https://boxicons.com/ 아이콘 
+    - custom CSS 의 경우 <style> 빼고 -> css 폴더 안에 css파일로 ->  <link href="./css/main.css" rel="stylesheet"> 형식
+
+![튜토리얼](https://raw.githubusercontent.com/hyeily0627/Basic-ASP.Net-2024/main/images/튜토리얼.png)
 
