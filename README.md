@@ -273,4 +273,9 @@
         - 무료테마(템플릿)이 아주 잘되어 있음 : https://getbootstrap.com/docs/5.3/examples/
 
 - 웹 페이지 클로닝(cloning)
-    - 
+    - 핀터레스트 타입 웹페이지 만들기(진행중~)
+    
+## 5일차 
+- Html + CSS + jsQuery 응용  
+    - 웹 페이지 클로닝(cloning)
+        - 핀터레스트 타입 + Bootstrap + 웹페이지 만들기 끝! 
