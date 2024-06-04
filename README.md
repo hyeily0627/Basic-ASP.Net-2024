@@ -278,4 +278,8 @@
 ## 5일차 
 - Html + CSS + jsQuery 응용  
     - 웹 페이지 클로닝(cloning)
-        - 핀터레스트 타입 + Bootstrap + 웹페이지 만들기 끝! 
+        - 핀터레스트 타입 + Bootstrap + 웹페이지 만들기 끝!
+
+
+https://github.com/hyeily0627/Basic-ASP.Net-2024/assets/156732476/fb4f16cd-092f-4e22-bab0-a808495371aa
+
