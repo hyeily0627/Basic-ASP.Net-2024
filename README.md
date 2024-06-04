@@ -285,11 +285,14 @@ https://github.com/hyeily0627/Basic-ASP.Net-2024/assets/156732476/fb4f16cd-092f-
 
 
 - https://www.youtube.com/@codehal 로그인창 웹페이지 튜토리얼 따라하기 
-    - https://boxicons.com/ 아이콘 
+    - https://boxicons.com/ 아이콘
+    - https://github.com/HoanghoDev?page=2&tab=repositories 유튜브 외 샘플코드 참고 (맞나?)
+    
     - custom CSS 의 경우 <style> 빼고 -> css 폴더 안에 css파일로 ->  <link href="./css/main.css" rel="stylesheet"> 형식
 
 ![튜토리얼](https://raw.githubusercontent.com/hyeily0627/Basic-ASP.Net-2024/main/images/codehal.png)
 
 
-<img src = "https://github.com/hyeily0627/Basic-ASP.Net-2024/blob/main/images/%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC.png" width="730" alt="codehal 로그인창 따라하기">
-
+<!-- 사이즈 조절해서 올리는 방법
+<img src = "https://github.com/hyeily0627/Basic-ASP.Net-2024/blob/main/images/%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC.png" width="730" alt="codehal 로그인창 따라하기"> 
+--!> 
