@@ -293,6 +293,19 @@ https://github.com/hyeily0627/Basic-ASP.Net-2024/assets/156732476/fb4f16cd-092f-
 ![튜토리얼](https://raw.githubusercontent.com/hyeily0627/Basic-ASP.Net-2024/main/images/codehal.png)
 
 
-<!-- 사이즈 조절해서 올리는 방법
-<img src = "https://github.com/hyeily0627/Basic-ASP.Net-2024/blob/main/images/%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC.png" width="730" alt="codehal 로그인창 따라하기"> 
---!> 
+** 사이즈 조절해서 올리는 방법 
+<!-- <img src = "https://github.com/hyeily0627/Basic-ASP.Net-2024/blob/main/images/%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC.png" width="730" alt="codehal 로그인창 따라하기"> -->
+
+
+## 6일차
+- HTML + CSS + js(jQuery) 응용
+    - 웹페이지 클로닝
+        - Codehal 슬라이더 애니메이션 웹페이지 튜토리얼 따라하기 (완료)
+
+          > 영상넣기
+
+        - 자동 슬라이드버튼 기능 추가
+
+         > 영상넣기 
+    
+- 개인 웹페이지 클로닝
