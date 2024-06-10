@@ -297,7 +297,7 @@ https://github.com/hyeily0627/Basic-ASP.Net-2024/assets/156732476/fb4f16cd-092f-
 <!-- <img src = "https://github.com/hyeily0627/Basic-ASP.Net-2024/blob/main/images/%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC.png" width="730" alt="codehal 로그인창 따라하기"> -->
 
 
-## 6일차
+## 6일차(24.06.05)
 - HTML + CSS + js(jQuery) 응용
     - 웹페이지 클로닝
         - Codehal 슬라이더 애니메이션 웹페이지 튜토리얼 따라하기 (완료)
@@ -309,7 +309,7 @@ https://github.com/hyeily0627/Basic-ASP.Net-2024/assets/156732476/fb4f16cd-092f-
          > 참고 영상넣기!!
     
 
-## 개인프로젝트 
+## 개인프로젝트(24.06.07)
 - 개인 웹페이지 클로닝
 
 # 1. homepage
@@ -324,3 +324,63 @@ https://github.com/hyeily0627/Basic-ASP.Net-2024/assets/156732476/fb4f16cd-092f-
     - 기간 : 2024-06-07~2024-06-10
         - 메뉴 항목 제작중 
         - 세부사항 내용 수정 필요 
+
+## 8일차(2024.06.10)
+- ASP.NET 
+    - 1990년대 
+        - MS가 웹 서버 기술로 ASP(Active Server Page)를 배포
+        - 이걸 따라 한 것이 JSP(Java Server Page) 
+        - ASP는 .NET 형식의 언어가 아니고, VisualBasicScript 를 사용 -> 파일 확장자는 .asp 
+        - 스파게티 코드!  -> HTML + CSS + JavaScript + VBscript 의 믹스
+        - 개발은 쉽다는 장점이 있지만, 그 외 유지보수가 어렵고 성능이 떨어지는 단점 
+    - 2000년대 초기                      
+        - MS가 .NET Framwork를 발표함 
+        - C#, C++.NET , VB.NET 등의 새로운 언어를 배포하며, 여기에 맞춰서 웹 서버기술을 다시 만듦 => ASP.NET( 확장자는 .aspx) 
+        - 초창기에는 스파게티코드를 거의 그대로 사용하다보니 성능도 낮은 상황...
+        - 하지만 장점이 있었는데, Winform 개발 처럼 웹개발이 가능하여 쉽다는 점! 
+    - 2009년
+        - ASP.MVC 출시(Model View Controllor 디자인 패턴 공표) -> 성능은 향상
+        - 하지만, window에서만 동작되는 한계 
+    - 2016년
+        - 모든 OS 플랫폼에서 동작할 수 있는 .NET Core를 재출시 
+        - 여기에 웹 서버기술을 또 다시 만듦 => ASP.NET Core (최종)
+
+- .NET Core(현재는 .NET 9.0 버전이고, Core라는 이름은 사용하지 않음)
+    - 특징 
+        - 빠른 오픈소스 
+        - 크로스 플랫폼으로, OS의 종속을 받지 않아 어디서든 사용 가능 
+        - 성능의 극대화 
+
+- ASP.NET Core 
+    - ASP.NET Webforms : 2000년대 초반에 나오다가 제한된 웹사이트 개발 기술 
+    - JavaScript(Vue, Angular, React) 프론트앤드 + ASP.NET Core 백앤드
+    - ASP.NET Core 웹 API - 데이터 포털, 네이버, 카카오 등의 사이트를 만드는 백앤드(프론트앤드가 없어 별도 화면이 없음)
+    - ASP.NET Core 웹앱(MVC) - 가장 기본적인 프론트앤드(HTML, CSS, js / .cshtml) + 백엔드(C# / aspx.cs) 웹 개발 
+    - Edge용 웹 드라이버 테스트 : 엣지 프라우저에 종속된 테스트용 
+    - ASP.NET Core gRPC 서비스 : 고성능 원격 프로시저(스트리밍 호출) 서비스
+    - Blazor : js 프론트엔드를 따라서 컴포넌트 기반으로 개발하는 웹개발 방식 웹사이트 개발 
+    - Razor - 프론트앤드 개발에 C# 코드가 특화되어 사용되는 웹사이트 개발 방식
+    - .NET Asprie : Blazor + Redis + 웹 API 백엔드 
+
+- 참조 사이트 
+    - http://github.com/dotnet 
+    - https://mixedcode.com/
+    - https://github.com/gilbutITbook/006824
+    - https://learn.microsoft.com/ko-kr/aspnet/core/?view=aspnetcore-3.1
+
+- ASP.NET Core 웹앱(Model Veiw Controller)
+    - 현재 기본적인 웹개발의 가장 표준격 
+    - Java 계열도 Spring Boot MVC로 개발 
+
+    ![MVC](https://raw.githubusercontent.com/hyeily0627/Basic-ASP.Net-2024/main/images/an0002.png)
+
+    - 프론트앤드 예전에는 스파게티코드가 많았는데, 현재는 최소화 되어있음(스트링부트, 파이썬, 플라스크 모두 동일!) 
+
+- 참고 
+    - 실행을 위해서는 콘솔이 닫히면 안됨(콘솔 닫기 ctrl + c) 
+    - IIS Express Server - VS에서 ASP.NET 웹사이트를 운영하는 개발용 웹서버 이름 
+    - index.~ : 웹사이트 가장 대문
+    - 파일 저장시 핫다시로드(HotReload) 체크
+    - @로 시작하는 c# 구문. Tag helper, HTML helper로 HTML 구문내에 c# 코드를 적어서 활용하는 방법 ->> Razor 구문
+    - Action -- HTML에서 form 태그 내에 Submit 버튼 클릭 ! -> 링크를 클릭하는 것, 윈앱에서 이벤트와 동일 
+    - 액션이 발생한 이후 처리하는 메서드의 결과를 ActionResult 라고 함 
