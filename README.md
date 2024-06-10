@@ -377,10 +377,59 @@ https://github.com/hyeily0627/Basic-ASP.Net-2024/assets/156732476/fb4f16cd-092f-
     - 프론트앤드 예전에는 스파게티코드가 많았는데, 현재는 최소화 되어있음(스트링부트, 파이썬, 플라스크 모두 동일!) 
 
 - 참고 
+    - ASP.NET core 웹앱(Model-View-Controller 템플릿 시작!!)
+
+    ![ASP.NET core](https://raw.githubusercontent.com/hyeily0627/Basic-ASP.Net-2024/main/images/an0001.png)
+
+    - **파일 저장시 핫다시로드(HotReload) 체크**
     - 실행을 위해서는 콘솔이 닫히면 안됨(콘솔 닫기 ctrl + c) 
     - IIS Express Server - VS에서 ASP.NET 웹사이트를 운영하는 개발용 웹서버 이름 
     - index.~ : 웹사이트 가장 대문
-    - 파일 저장시 핫다시로드(HotReload) 체크
     - @로 시작하는 c# 구문. Tag helper, HTML helper로 HTML 구문내에 c# 코드를 적어서 활용하는 방법 ->> Razor 구문
     - Action -- HTML에서 form 태그 내에 Submit 버튼 클릭 ! -> 링크를 클릭하는 것, 윈앱에서 이벤트와 동일 
     - 액션이 발생한 이후 처리하는 메서드의 결과를 ActionResult 라고 함 
+
+- 데이터 베이스 연동방법
+    - 1. DB Frist : 가장 전통적인 DB 연동 방식
+    DB 설계 -> DB 구축 -> C# 과 연동 
+    - **2. Code Frist** : 최근 트렌드 연동 방식 
+    C# 엔터티 클래스 작성 -> DB 연결 설정 -> 실행 -> DB에 테이블이 생성됨
+    - 2번은 EntityFramework를 사용하여 손쉽게 구축 가능 
+    - 설치
+        1. Microsoft.EntityFrameworkCore
+        2. Microsoft.EntityFrameworkCore.Tools
+        3. Microsoft.EntityFrameworkCore.SqlServer (이건 DB 따라서 달라짐/ mysql, oracle 등은 확인 필요)
+    - 순서 
+        1. Models 폴더 Category 클래스 생성 - 내용삽입
+        2. appsettings.json에 DB연결 문자열 추가(서버- 속성 -연결문자열) 
+        ** 설명 추가 DB 있는거 연결하고 Category라는 엔티티 추가 하는 과정인데 동일 엔티티 명이 있으면 안됨!   
+        ```json
+        {
+        "Logging": {
+            "LogLevel": {
+            "Default": "Information",
+            "Microsoft.AspNetCore": "Warning"
+            }
+        },
+        "AllowedHosts": "*",
+        "ConnectionStrings": {
+            "DefaultConnection": "Data Source=localhost;Initial Catalog=EMS;Persist Security Info=True;User ID=sa;Password=mssql_p@ss;Encrypt=False"
+            }
+        }
+        ```
+        3. Data/ApplicationDbContext.cs 중간연결 클래스 생성 
+        4. Program.cs Services 내에 DBContext 종속성 주입
+        5. Nuget 패키지 관리자 > 패키지 관리자 콘솔 실핼
+        ```shell
+        PM> Add-Migration 마이그레이션명 (여기서는 AddCategoryToDb로 씀)
+        Build started...
+        Build succeeded.
+        To undo this action, use Remove-Migration.
+        ...
+        PM> Update-Database
+        ...
+        Done.
+        ```
+        6. 컨트롤즈 폴더에서 추가 - 컨트롤러 - Entity Framework를 사용하여 뷰가 포함된 Mvc 컨트롤러 - 아래사진같이 설정 
+
+        ![컨트롤러](https://raw.githubusercontent.com/hyeily0627/Basic-ASP.Net-2024/main/images/an0003.png)
