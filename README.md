@@ -28,6 +28,10 @@
 
 - 개발이란..! 
     - 프론트엔드 전부 + 백엔드 여러개 중 하나 + DB 
+    - 웹 브라우저에서 F12(개발자도구)
+    - VS Code 플러그인
+        - HTML Code Snippet
+        - Live Server
 
 - HTML5(Hyper Text Markup Language)
     - XML(eXtensible Markup Language)이 웹페이지를 구성하기 위한 선행기술 -> 복잡해서 간략화 시킨게 HTML 
@@ -52,9 +56,11 @@
         - div : 그룹화 구분자 
         - image : 이미지 표현
         -  <hr> : 가로선
+        ```
         - <p>가나다라<small></small>아자차카타파하</p> : 글씨작게
         - <p>가나다라<sub></sub>아자차카타파하</p> : 아래첨자
         - <p>가나다라<suf></suf>아자차카타파하</p> : 윗 첨자
+        ```
     
     - 태그 : 요소를 만들때 사용하는 작성 방법 
         - 내용을 가질 수 있는 요소 : <요소이름>내용</요소이름>
@@ -318,6 +324,8 @@ https://github.com/hyeily0627/Basic-ASP.Net-2024/assets/156732476/fb4f16cd-092f-
         - 이걸 따라 한 것이 JSP(Java Server Page) 
         - ASP는 .NET 형식의 언어가 아니고, VisualBasicScript 를 사용 -> 파일 확장자는 .asp 
         - 스파게티 코드!  -> HTML + CSS + JavaScript + VBscript 의 믹스
+            - 프론트엔드 + 백엔드 소스가 모두 한페이지에
+            - 다만 현재 프론트엔드도 백엔드 소스가 일부는 포함 
         - 개발은 쉽다는 장점이 있지만, 그 외 유지보수가 어렵고 성능이 떨어지는 단점 
     - 2000년대 초기                      
         - MS가 .NET Framwork를 발표함 
@@ -330,11 +338,12 @@ https://github.com/hyeily0627/Basic-ASP.Net-2024/assets/156732476/fb4f16cd-092f-
     - 2016년
         - 모든 OS 플랫폼에서 동작할 수 있는 .NET Core를 재출시 
         - 여기에 웹 서버기술을 또 다시 만듦 => ASP.NET Core (최종)
+    - ASP.NET은 C#이 아닌 다른 .NET 언어로도 개발 가능함 
 
 - .NET Core(현재는 .NET 9.0 버전이고, Core라는 이름은 사용하지 않음)
     - 특징 
         - 빠른 오픈소스 
-        - 크로스 플랫폼으로, OS의 종속을 받지 않아 어디서든 사용 가능 
+        - **크로스 플랫폼**으로, OS의 종속을 받지 않아 어디서든 사용 가능 
         - 성능의 극대화 
 
 - ASP.NET Core 
@@ -419,3 +428,87 @@ https://github.com/hyeily0627/Basic-ASP.Net-2024/assets/156732476/fb4f16cd-092f-
         6. 컨트롤즈 폴더에서 추가 - 컨트롤러 - Entity Framework를 사용하여 뷰가 포함된 Mvc 컨트롤러 - 아래사진같이 설정 
 
         ![컨트롤러](https://raw.githubusercontent.com/hyeily0627/Basic-ASP.Net-2024/main/images/an0003.png)
+
+    - 혹시! 브라우저 실행시 '연결이 비공개로 설정되어있습니다.' 오류가 뜨는 경우 
+        - 브라우저 화면 클릭 > thisisunsafe를 입력 > 새로고침 
+
+## 9일차 (2024-07-16) 다시 돌아와땅! 
+- ASP.NET Core MVC
+    - MVC 리뷰 
+        - Model : 개발자가 따로 만듦 
+        - View, Controller 폴더는 자동 생성 
+        - 웹 브라우저에서 접근할 페이지를 만들려면
+            1. Controller 생성
+            2. View를 같이 생성할지, 나중에 생성할지 선택(같이 생성하는 것이 편함)
+                - 컨트롤러 메서드 이름과 동일한 csHtml 페이지가 생성됨 
+            3. Controller에 Model에서 DB와 연결될 내용을 작성
+            4. Model내용을 View로 리턴
+
+- ASP.NET Core 개인 포트폴리오 웹사이트 : MyPortfolio
+    1. Visual Studio 에서 ASP.NET Core 웹앱(MVC)
+    2. 부트스트랩 템플릿 사이트에서 알맞은 템플릿 다운로드 
+        - https://startbootstrap.com/
+        - https://themes.getbootstrap.com/
+        - https://bootstrapmade.com/ 
+    3. wwwroot 폴더 밑에 템플릿 html, css, js, 이미지 등 위치 (asset는 폴더 그대로 옮기기)
+    4. 템플릿 페이지의 공통적인 부분(header, bottom)은 _layout.cshtml에 위치 
+    5. 중간 페이지에서 변경되는 부분은 각 views 밑에 포함
+    6. _layout.cshtml 에 공통부분 옮기기
+    7. index.cshtml에 index.html에서 공통부분 외 영역 옮기기 
+    8. index.cshtml 내용 수정
+    9. ResumeController.cs 생성, 뷰를 같이 생성 
+        - DB 관련한 설정이 없으면 Model, view를 만들기 어렵다!
+        - MVC 컨트롤러 - 비어있음 : .cs 파일
+        - Controller.cs 에서 index > 오른쪽 마우스 뷰 추가 
+        - Resume, Project, Contact 동일 
+    10. Resume 이란 폴더가 View안에 만들어져야함  
+        - Resume 안 파일은 Index.cshtml 아래와 같이 화면 구성 
+        ```html
+        @{
+        ViewData["Title"] = "Resume";
+        }
+
+        <h3>이력서 뷰 </h3>
+        ```
+    11. 템플릿 가져와서 넣기  
+    12. code first 방식으로 Board 테이블 생성 
+         - 설치
+        1. Microsoft.EntityFrameworkCore
+        2. Microsoft.EntityFrameworkCore.Tools
+        3. Microsoft.EntityFrameworkCore.SqlServer (이건 DB 따라서 달라짐/ mysql, oracle 등은 확인 필요)
+
+    쌤 15번 부터 조퇴!
+
+- 참고
+    - 아이콘 https://www.flaticon.com/
+    - ico 변환 https://www.freeconvert.com/
+    - 구글폰트 https://fonts.google.com/
+    - 부트스트랩 시작하기 https://getbootstrap.kr/docs/5.3/getting-started/introduction/
+        - 버전업, 아이콘, 구역 등 
+
+## 10일차
+- ASP.NET Core 포트폴리오 웹사이트, MyPortfoilo
+    1. Board.cs 멤버속성 ModDate로 이름 변경
+        - BoardController.cs에서 ModeDate -> ModData로 변경
+        - View/Board/*.cshtml ModeData -> ModData로 변경
+    2. ASP.NET Core 템플릿으로 만들어주는 CRUD(Insert, Select, Update, Delete)    
+    3. 테이블 삭제, 재생성
+    4. 게시판 관련된 화면 수정작업
+        - Views/board/index.cshtml 게시판 리스트화면 수정
+        - Index.cshtml 테이블 틀 변경, 삭제, 수정, 삭제버튼 삭제
+        - Models/Board.cs에 테이블 한글이름 추가 DisplayName() 이용
+
+        - Views/Board/Details.cshtml 부트스트랩 적용
+        - 수정/ 삭제 등 버큰 디자인 적용
+        - Views/board/Create.cshtml 부트스트랩 적용
+    5. SSMS에서 Board테이블 Hit, RegDate, ModDate를 NULL허용으로 설정 
+    6. 웹사이트 동작 순서 
+        1. https://localhost:7165/Board/Create 링크오픈
+        2. BoardController -> Create 액션메서드
+        3. Submit -> BoardController -> Create 액션메서드 발동
+        4. Create 액션메서드 내 로직처리 DB에 데이터 입력 
+        5. Models/Board.cs Moa
+
+    4. 페이징!!
+    5. 회원가입, 로그인 ...
+    6. 관리자모드/페이지
