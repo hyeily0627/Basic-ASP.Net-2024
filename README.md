@@ -574,8 +574,10 @@ https://github.com/hyeily0627/Basic-ASP.Net-2024/assets/156732476/fb4f16cd-092f-
         - 실제 사용페이지에서 특정 js만 실행 
         - create.cshtml, Edit.cshtml을 동일하게 작업 
         - Nuget패키지에서 라이브러리 다운 : Westwind.AspNetCore.Markdown 
-        - ![HTML 에디터](https://raw.githubusercontent.com/hyeily0627/Basic-ASP.Net-2024/main/images/an0005.png)
+
+        ![HTML 에디터](https://raw.githubusercontent.com/hyeily0627/Basic-ASP.Net-2024/main/images/an0005.png)
  
  ## 12일차(24.07.23)
+- 지난시간 이어서
     7. 회원가입, 로그인....
     8. 관리자모드/페이지
