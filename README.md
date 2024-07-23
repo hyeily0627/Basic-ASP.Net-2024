@@ -432,7 +432,7 @@ https://github.com/hyeily0627/Basic-ASP.Net-2024/assets/156732476/fb4f16cd-092f-
     - 혹시! 브라우저 실행시 '연결이 비공개로 설정되어있습니다.' 오류가 뜨는 경우 
         - 브라우저 화면 클릭 > thisisunsafe를 입력 > 새로고침 
 
-## 9일차 (2024-07-16) 다시 돌아와땅! 
+## 9일차 (24.07.16) 다시 돌아와땅! 
 - ASP.NET Core MVC
     - MVC 리뷰 
         - Model : 개발자가 따로 만듦 
@@ -476,8 +476,14 @@ https://github.com/hyeily0627/Basic-ASP.Net-2024/assets/156732476/fb4f16cd-092f-
         1. Microsoft.EntityFrameworkCore
         2. Microsoft.EntityFrameworkCore.Tools
         3. Microsoft.EntityFrameworkCore.SqlServer (이건 DB 따라서 달라짐/ mysql, oracle 등은 확인 필요)
-
-    쌤 15번 부터 조퇴!
+    13. Models/Board.cs 로 엔티티 클래스 생성
+    14. appsettings.json 에 DB 연결문자열 추가
+    15. Data/AppDbContext.cs 생성
+    16. Program.cs 에 DbContext 종속성 주입
+    17. NuGet패키지 관리자 콘솔 > Add-Migration, Update-Database 진행
+    18. _layout.cshtml Board 링크 수정
+    19. /Controller/BoardController.cs를 생성(모델, 뷰 연결)
+        - ![MVC컨트롤러](https://raw.githubusercontent.com/hyeily0627/Basic-ASP.Net-2024/main/images/an0004.png)
 
 - 참고
     - 아이콘 https://www.flaticon.com/
@@ -512,3 +518,58 @@ https://github.com/hyeily0627/Basic-ASP.Net-2024/assets/156732476/fb4f16cd-092f-
     4. 페이징!!
     5. 회원가입, 로그인 ...
     6. 관리자모드/페이지
+
+## 11일차 
+**주석처리 ctrl + A + C** 
+
+## 11일차(24.07.23)
+- ASP.NET Core 포트폴리오 웹사이트, MyPortfolio
+    1. EntityFramework로 SQL 사용없이 DB 핸들링
+        - DbContext.Add(삽입), Update(수정), Remove(삭제) 기능 존재
+        - 위의 명령을 실행 후 DbContext.SaveChangesAsync() 실행해서 실제 DB에 반영
+        - ToListAsync(), FirstOrDefaultAsync()는 SELECT로 트랜잭션이 발생X. 그래서 SaveChangesAsync()를 실행X
+    2. 글 조회수 올리기
+    3. 게시글 삭제
+        - _layout.cshtml의  @await RenderSectionAsync("Scripts", required: false) 이 각 페이지에 필요시 스크립트영역을 만들어써라는 의미
+        - AJAX 삭제는 나중에 다시!!!
+    4. **페이징**
+        - 웹사이트에서 가장 중요한 기능 중 하나
+        - 한 페이지에 표시할 수 있는 글의 수를 제한
+        - 스크롤 페이징, 번호 페이징
+        - 번호 페이징
+            1. BoardController.cs Index() 액션메서드 내 FromSql()로 변경(비동기 적용 안됨, 비동기 부분 제거)
+            2. 페이징용 쿼리 작성
+
+                ```sql
+                SELECT *
+                  FROM (
+                          SELECT ROW_NUMBER() OVER (ORDER BY Id DESC) AS rowNum
+                               , Id
+                               , Name
+                               , UserId
+                               , Title
+                               , Contents
+                               , Hit
+                               , RegDate
+                               , ModDate
+                            FROM Board
+                        ) AS base
+                  WHERE base.rowNum BETWEEN 1 AND 10 -- 1과 10에 10씩 더하면 다음 페이지를 조회 쿼리
+                ```
+            3. Index() 내 로직 수정
+            4. View/Board/Index.cshtml 화면코드 수정 
+    5. 검색 
+        - FromSqlRaw() 메서드 변경
+        - html 링크에 ?page=1&search= 검색어 추가 
+    6. HTML 에디터
+        - Markdown 에디터
+        - https://simplemde.com / 따라가서 깃허브 참조해서 코드 삽입 
+        - _layout.cshtml에 js, css 링크만 추가
+        - 실제 사용페이지에서 특정 js만 실행 
+        - create.cshtml, Edit.cshtml을 동일하게 작업 
+        - Nuget패키지에서 라이브러리 다운 : Westwind.AspNetCore.Markdown 
+        - ![HTML 에디터](https://raw.githubusercontent.com/hyeily0627/Basic-ASP.Net-2024/main/images/an0005.png)
+ 
+ ## 12일차(24.07.23)
+    7. 회원가입, 로그인....
+    8. 관리자모드/페이지
