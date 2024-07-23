@@ -556,12 +556,12 @@ https://github.com/hyeily0627/Basic-ASP.Net-2024/assets/156732476/fb4f16cd-092f-
                         ) AS base
                   WHERE base.rowNum BETWEEN 1 AND 10 -- 1과 10에 10씩 더하면 다음 페이지를 조회 쿼리
                 ```
+
             3. Index() 내 로직 수정
             4. View/Board/Index.cshtml 화면코드 수정
 
 
-https://github.com/user-attachments/assets/05d6adea-5893-42db-86ed-2d3438c9ca9a
-
+            https://github.com/user-attachments/assets/05d6adea-5893-42db-86ed-2d3438c9ca9a
 
 
     5. 검색 
