@@ -445,6 +445,9 @@ https://github.com/hyeily0627/Basic-ASP.Net-2024/assets/156732476/fb4f16cd-092f-
             4. Model내용을 View로 리턴
 
 - ASP.NET Core 개인 포트폴리오 웹사이트 : MyPortfolio
+
+* 참고 https://docs.google.com/document/d/1zLZFC7M5TkDW3kPJuFfunyx7YfAmBFWltptElsjIHDg/edit#heading=h.8a9sxshwch3f
+
     1. Visual Studio 에서 ASP.NET Core 웹앱(MVC)
     2. 부트스트랩 템플릿 사이트에서 알맞은 템플릿 다운로드 
         - https://startbootstrap.com/
@@ -520,7 +523,7 @@ https://github.com/hyeily0627/Basic-ASP.Net-2024/assets/156732476/fb4f16cd-092f-
     6. 관리자모드/페이지
 
 ## 11일차 
-**주석처리 ctrl + A + C** 
+**주석처리 ctrl + k + C** 
 
 ## 11일차(24.07.23)
 - ASP.NET Core 포트폴리오 웹사이트, MyPortfolio
@@ -577,7 +580,31 @@ https://github.com/hyeily0627/Basic-ASP.Net-2024/assets/156732476/fb4f16cd-092f-
 
         ![HTML 에디터](https://raw.githubusercontent.com/hyeily0627/Basic-ASP.Net-2024/main/images/an0005.png)
  
- ## 12일차(24.07.23)
+## 12일차(24.07.23)
 - 지난시간 이어서
-    7. 회원가입, 로그인....
-    8. 관리자모드/페이지
+    7. 삭제로직 수정 
+        - BoardController.cs 사용하지 않음 -> BoardRestController.cs 다시 생성(MVC 컨트롤러 비어있음 선택)
+            
+            ```c#
+            // 어노테이션
+            [Route("api/[controller]")] // api/BoardRest로 URL을 만들어줌 
+            [ApiController]
+            ```
+            * 어노테이션은 다른 프로그램에게 유용한 정보를 제공하기 위해 사용되는 것으로 주석과 같은 의미를 가진다.
+            - 컴파일러에게 문법 에러를 체크하도록 정보를 제공한다.
+            - 프로그램을 빌드할 때 코드를 자동으로 생성할 수 있도록 정보를 제공한다.
+            - 런타임에 특정 기능을 실행하도록 정보를 제공한다.
+        - /Views/Details.cshtml jQuery를 작업(팝업)
+        - /Board/Index로 화면 전환 
+
+    8. 회원가입, 로그인....
+        1. 
+        2. 
+        3. 
+        4. ADD-Migration ModelsToDb / update-database
+        5. 
+        
+
+    
+
+    9. 관리자모드/페이지

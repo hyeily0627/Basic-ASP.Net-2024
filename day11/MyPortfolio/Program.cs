@@ -18,6 +18,13 @@ namespace MyPortfolio
                 builder.Configuration.GetConnectionString("MyConnection")
                 ));
 
+            // 로그인 세션 설정 
+            builder.Services.AddSession(options =>
+            {
+                options.Cookie.Name = "HyejinSession"; // 앱세션 쿠키 이름 
+                options.IdleTimeout = TimeSpan.FromMinutes(20); // 세션지속시간 (20분) 
+            }).AddControllersWithViews(); // 세션의 내용을 cshtml에도 적용 
+
             // 마크다운 관련 설정
             builder.Services.AddMarkdown();
             builder.Services.AddMvc().AddApplicationPart(typeof(MarkdownPageProcessorMiddleware).Assembly);
@@ -35,9 +42,11 @@ namespace MyPortfolio
             app.UseMarkdown(); // 마크다운 사용설정 
 
             app.UseHttpsRedirection();
+            app.UseHttpsRedirection();
             app.UseStaticFiles();
 
             app.UseRouting();
+            app.UseSession();
 
             app.UseAuthorization();
 
