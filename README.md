@@ -617,23 +617,21 @@ https://github.com/hyeily0627/Basic-ASP.Net-2024/assets/156732476/fb4f16cd-092f-
 ## 13일차 
 - ASP.NET Core 포트폴리오 웹사이트, MyPortfolio
     8. 회원가입, 로그인.... 계속
-        * 참고 
-        - 사진과 같이 초록색으로 뜨는 글씨는 웹에서 따로 보이지 않는 속성 
+        - 참고 : 사진과 같이 초록색으로 뜨는 글씨는 웹에서 따로 보이지 않는 속성 
+        - input 태그의 asp-for는 HTML로 랜더링 된 뒤 id=와 name으로 변환됨 
 
         ![asp](https://raw.githubusercontent.com/hyeily0627/Basic-ASP.Net-2024/main/images/an0007.png) 
 
-        - input 태그의 asp-for는 HTML로 랜더링 된 뒤 id=와 name으로 변환됨 
+        - Program.cs 로그인 세션에 쿠키이름 공백 절대 안됨
+        
+        1. Register.cshtml에 asp-for등 C# Razor tag로 변경
+        2. HomeController.cs Register Post 메서드 작성
+        3. Login.cshtml에 C# Razor tag로 변경
+        4. HomeController.cs Login Post 메서드 작성
+        5. Logout Get메서드 추가
 
-        * Program.cs 로그인 세션에 쿠키이름 공백 절대 안됨
-      1. Register.cshtml에 asp-for등 C# Razor tag로 변경
-      2. HomeController.cs Register Post 메서드 작성
-      3. Login.cshtml에 C# Razor tag로 변경
-      4. HomeController.cs Login Post 메서드 작성
-      5. Logout Get메서드 추가
+        https://github.com/user-attachments/assets/9018c506-85db-4223-9e6d-163e7e3b9dfa
 
-  https://github.com/user-attachments/assets/9018c506-85db-4223-9e6d-163e7e3b9dfa
-
-    
     9. 이력서, 프로젝트, 컨텍트 페이지 구현하기
     10. 관리자모드/페이지
     11. 자신 컴퓨터 IIS 서버에 웹사이트 올리기
