@@ -61,7 +61,7 @@ namespace MyPortfolio.Controllers
             
             if (result == null) // 로그인 할 사람이 없음
             {
-                ViewBag.ErrorMessage = "비밀번호가 일치하지 않습니다.";
+                
                 return View(user);
             }
             else

@@ -8,15 +8,17 @@ namespace MyPortfolio.Models
         [Key]
         public int Id { get; set; } // PK
 
-        [Required(ErrorMessage ="이름은 필수입니다")]
-        [MaxLength(50)]  // NVARCHAR(50) 사이즈 지정하려면
-        [DisplayName("이름")]
-        public string Name { get; set; } // 작성자명
+        //[Required(ErrorMessage ="이름은 필수입니다")]
+        //[MaxLength(50)]  // NVARCHAR(50) 사이즈 지정하려면
+        //[DisplayName("이름")]
 
-        [Required(ErrorMessage = "아이디는 필수입니다")]
-        [MaxLength(20)]
-        [DisplayName("아이디")]
-        public string UserId { get; set; } // 작성자 아이디
+        //public string Name { get; set; } // 작성자명
+
+        //[Required(ErrorMessage = "아이디는 필수입니다")]
+        //[MaxLength(20)]
+        //[DisplayName("아이디")]
+
+        //public string UserId { get; set; } // 작성자 아이디
 
         [Required(ErrorMessage = "제목은 필수입니다")]
         [MaxLength(250)]
@@ -25,11 +27,11 @@ namespace MyPortfolio.Models
 
         [Required(ErrorMessage = "내용은 필수입니다")]
         [DisplayName("내용")]
+
         public string Contents { get; set; } // 게시글 내용
-
-
         // DB에서 null 허용하는 것은 ?로 표시 
         [DisplayName("조회수")]
+
         public int? Hit { get; set; } // 읽은 횟수
 
         [DisplayName("작성일")]
@@ -39,7 +41,13 @@ namespace MyPortfolio.Models
         [DisplayName("수정일")]
         public DateTime? ModDate { get; set; } // 게시글 최종 수정일자
 
+
         // RelationShip User부모 -> Board 자식 
-        public virtual User User { get; set; } 
+        public virtual User? User { get; set; }
+        
+        [DisplayName("작성자 이름")]
+        public virtual string? UserName { get; set; }
+
+        
     }
 }

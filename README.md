@@ -527,23 +527,23 @@ https://github.com/hyeily0627/Basic-ASP.Net-2024/assets/156732476/fb4f16cd-092f-
 
 ## 11일차(24.07.23)
 - ASP.NET Core 포트폴리오 웹사이트, MyPortfolio
-    1. EntityFramework로 SQL 사용없이 DB 핸들링
-        - DbContext.Add(삽입), Update(수정), Remove(삭제) 기능 존재
-        - 위의 명령을 실행 후 DbContext.SaveChangesAsync() 실행해서 실제 DB에 반영
-        - ToListAsync(), FirstOrDefaultAsync()는 SELECT로 트랜잭션이 발생X. 그래서 SaveChangesAsync()를 실행X
-    2. 글 조회수 올리기
-    3. 게시글 삭제
-        - _layout.cshtml의  @await RenderSectionAsync("Scripts", required: false) 이 각 페이지에 필요시 스크립트영역을 만들어써라는 의미
-        - AJAX 삭제는 나중에 다시!!!
-    4. **페이징**
-        - 웹사이트에서 가장 중요한 기능 중 하나
-        - 한 페이지에 표시할 수 있는 글의 수를 제한
-        - 스크롤 페이징, 번호 페이징
-        - 번호 페이징
-            1. BoardController.cs Index() 액션메서드 내 FromSql()로 변경(비동기 적용 안됨, 비동기 부분 제거)
-            2. 페이징용 쿼리 작성
+1. EntityFramework로 SQL 사용없이 DB 핸들링
+    - DbContext.Add(삽입), Update(수정), Remove(삭제) 기능 존재
+    - 위의 명령을 실행 후 DbContext.SaveChangesAsync() 실행해서 실제 DB에 반영
+    - ToListAsync(), FirstOrDefaultAsync()는 SELECT로 트랜잭션이 발생X. 그래서 SaveChangesAsync()를 실행X
+2. 글 조회수 올리기
+3. 게시글 삭제
+    - _layout.cshtml의  @await RenderSectionAsync("Scripts", required: false) 이 각 페이지에 필요시 스크립트영역을 만들어써라는 의미
+    - AJAX 삭제는 나중에 다시!!!
+4. **페이징**
+    - 웹사이트에서 가장 중요한 기능 중 하나
+    - 한 페이지에 표시할 수 있는 글의 수를 제한
+    - 스크롤 페이징, 번호 페이징
+    - 번호 페이징
+        1. BoardController.cs Index() 액션메서드 내 FromSql()로 변경(비동기 적용 안됨, 비동기 부분 제거)
+        2. 페이징용 쿼리 작성
 
-                ```sql
+            ```sql
                 SELECT *
                   FROM (
                           SELECT ROW_NUMBER() OVER (ORDER BY Id DESC) AS rowNum
@@ -558,84 +558,104 @@ https://github.com/hyeily0627/Basic-ASP.Net-2024/assets/156732476/fb4f16cd-092f-
                             FROM Board
                         ) AS base
                   WHERE base.rowNum BETWEEN 1 AND 10 -- 1과 10에 10씩 더하면 다음 페이지를 조회 쿼리
-                ```
-
-            3. Index() 내 로직 수정
-            4. View/Board/Index.cshtml 화면코드 수정
-
-
-            https://github.com/user-attachments/assets/05d6adea-5893-42db-86ed-2d3438c9ca9a
-
-
-    5. 검색 
-        - FromSqlRaw() 메서드 변경
-        - html 링크에 ?page=1&search= 검색어 추가 
-    6. HTML 에디터
-        - Markdown 에디터
-        - https://simplemde.com / 따라가서 깃허브 참조해서 코드 삽입 
-        - _layout.cshtml에 js, css 링크만 추가
-        - 실제 사용페이지에서 특정 js만 실행 
-        - create.cshtml, Edit.cshtml을 동일하게 작업 
-        - Nuget패키지에서 라이브러리 다운 : Westwind.AspNetCore.Markdown 
-
-        ![HTML 에디터](https://raw.githubusercontent.com/hyeily0627/Basic-ASP.Net-2024/main/images/an0005.png)
- 
-## 12일차(24.07.23)
-- 지난시간 이어서
-    7. 삭제로직 수정 
-        - BoardController.cs 사용하지 않음 -> BoardRestController.cs 다시 생성(MVC 컨트롤러 비어있음 선택)
-            
-            ```c#
-            // 어노테이션
-            [Route("api/[controller]")] // api/BoardRest로 URL을 만들어줌 
-            [ApiController]
             ```
-            * 어노테이션은 다른 프로그램에게 유용한 정보를 제공하기 위해 사용되는 것으로 주석과 같은 의미를 가진다.
-            - 컴파일러에게 문법 에러를 체크하도록 정보를 제공한다.
-            - 프로그램을 빌드할 때 코드를 자동으로 생성할 수 있도록 정보를 제공한다.
-            - 런타임에 특정 기능을 실행하도록 정보를 제공한다.
-        - /Views/Details.cshtml jQuery를 작업(팝업)
-        - /Board/Index로 화면 전환 
 
-    8. 회원가입, 로그인....
-        1. /Models/User.cs 클래스 생성
-        2. User클래스와 Board클래스간 관계형성 (virtual)
-        3. AppDbContext.cs에 User DBset추가
-        4. Add-Migration, Update-Database 실행 -> DB 생성
-        5. Program.cs에 로그인 세션 설정
-        6. _layout.cshtml 로그인/로그아웃 메뉴 추가
-        7. HomeController.cs Login/Logout 액션메서드 작성
-        8. Login() 액션메서드 마우스오른쪽 버튼 뷰생성 Login.cshtml
-            - Razor 뷰  - 스캐폴딩 사진과 같이 설정  
-            ![스캐폴딩](https://raw.githubusercontent.com/hyeily0627/Basic-ASP.Net-2024/main/images/an0006.png)
-        9. bootstrap 사이트에서 예제 파일 다운로드
-        10. sign-in 폴더 내 index.html. sign-in.css Static경로(wwwroot) 복사
-        11. Login.cshtml을 위의 파일 참조해서 수정
-        12. HomeController.cs 에 Register() 액션메서드 작성
-        13. Register.cshtml 회원가입 페이지 생성
+        3. Index() 내 로직 수정
+        4. View/Board/Index.cshtml 화면코드 수정
 
-## 13일차 
-- ASP.NET Core 포트폴리오 웹사이트, MyPortfolio
-    8. 회원가입, 로그인.... 계속
-        - 참고 : 사진과 같이 초록색으로 뜨는 글씨는 웹에서 따로 보이지 않는 속성 
-        - input 태그의 asp-for는 HTML로 랜더링 된 뒤 id=와 name으로 변환됨 
 
-        ![asp](https://raw.githubusercontent.com/hyeily0627/Basic-ASP.Net-2024/main/images/an0007.png) 
+        https://github.com/user-attachments/assets/05d6adea-5893-42db-86ed-2d3438c9ca9a
 
-        - Program.cs 로그인 세션에 쿠키이름 공백 절대 안됨
+
+5. 검색 
+    - FromSqlRaw() 메서드 변경
+    - html 링크에 ?page=1&search= 검색어 추가 
+6. HTML 에디터
+    - Markdown 에디터
+    - https://simplemde.com / 따라가서 깃허브 참조해서 코드 삽입 
+    - _layout.cshtml에 js, css 링크만 추가
+    - 실제 사용페이지에서 특정 js만 실행 
+    - create.cshtml, Edit.cshtml을 동일하게 작업 
+    - Nuget패키지에서 라이브러리 다운 : Westwind.AspNetCore.Markdown 
+
+    ![HTML 에디터](https://raw.githubusercontent.com/hyeily0627/Basic-ASP.Net-2024/main/images/an0005.png)
+ 
+## 12일차(24.07.24)
+7. 삭제로직 수정 
+    - BoardController.cs 사용하지 않음 -> BoardRestController.cs 다시 생성(MVC 컨트롤러 비어있음 선택)
+            
+    ```c#
+        // 어노테이션
+        [Route("api/[controller]")] // api/BoardRest로 URL을 만들어줌 
+        [ApiController]
+    ```
+
+    * 어노테이션은 다른 프로그램에게 유용한 정보를 제공하기 위해 사용되는 것으로 주석과 같은 의미를 가진다.
+    - 컴파일러에게 문법 에러를 체크하도록 정보를 제공한다.
+    - 프로그램을 빌드할 때 코드를 자동으로 생성할 수 있도록 정보를 제공한다.
+    - 런타임에 특정 기능을 실행하도록 정보를 제공한다.
+    - /Views/Details.cshtml jQuery를 작업(팝업)
+    - /Board/Index로 화면 전환 
+
+8. 회원가입, 로그인....
+    1. /Models/User.cs 클래스 생성
+    2. User클래스와 Board클래스간 관계형성 (virtual)
+    3. AppDbContext.cs에 User DBset추가
+    4. Add-Migration, Update-Database 실행 -> DB 생성
+    5. Program.cs에 로그인 세션 설정
+    6. _layout.cshtml 로그인/로그아웃 메뉴 추가
+    7. HomeController.cs Login/Logout 액션메서드 작성
+    8. Login() 액션메서드 마우스오른쪽 버튼 뷰생성 Login.cshtml
+        - Razor 뷰  - 스캐폴딩 사진과 같이 설정  
+
+        ![스캐폴딩](https://raw.githubusercontent.com/hyeily0627/Basic-ASP.Net-2024/main/images/an0006.png)
         
-        1. Register.cshtml에 asp-for등 C# Razor tag로 변경
-        2. HomeController.cs Register Post 메서드 작성
-        3. Login.cshtml에 C# Razor tag로 변경
-        4. HomeController.cs Login Post 메서드 작성
-        5. Logout Get메서드 추가
+    9. bootstrap 사이트에서 예제 파일 다운로드
+    10. sign-in 폴더 내 index.html. sign-in.css Static경로(wwwroot) 복사
+    11. Login.cshtml을 위의 파일 참조해서 수정
+    12. HomeController.cs 에 Register() 액션메서드 작성
+    13. Register.cshtml 회원가입 페이지 생성
 
-        https://github.com/user-attachments/assets/9018c506-85db-4223-9e6d-163e7e3b9dfa
+## 13일차(24.07.25) 
+- ASP.NET Core 포트폴리오 웹사이트, MyPortfolio
+8. 회원가입, 로그인.... 계속
+    - 참고 : 사진과 같이 초록색으로 뜨는 글씨는 웹에서 따로 보이지 않는 속성 
+    - input 태그의 asp-for는 HTML로 랜더링 된 뒤 id=와 name으로 변환됨 
 
-    9. 이력서, 프로젝트, 컨텍트 페이지 구현하기
-    10. 관리자모드/페이지
-    11. 자신 컴퓨터 IIS 서버에 웹사이트 올리기
-    12. AWS 라이트세일로 웹사이트 공개하기
-    13. 부트스트랩 템플릿 커스터마이징, 자기 포트폴리오 사이트 만들기
+    ![asp](https://raw.githubusercontent.com/hyeily0627/Basic-ASP.Net-2024/main/images/an0007.png) 
 
+    - Program.cs 로그인 세션에 쿠키이름 공백 절대 안됨
+        
+    1. Register.cshtml에 asp-for등 C# Razor tag로 변경
+    2. HomeController.cs Register Post 메서드 작성
+    3. Login.cshtml에 C# Razor tag로 변경
+    4. HomeController.cs Login Post 메서드 작성
+    5. Logout Get메서드 추가
 
+    https://github.com/user-attachments/assets/9018c506-85db-4223-9e6d-163e7e3b9dfa
+
+- 추가+ 게시판 글 오류 수정
+    1. Board.cs 에 있는 Name, UserID를 삭제
+    2. BoardController.cs에 있는 Board 클래스와 관련된 변수도 삭제 
+    3. View/Board/*.cshtml Name, UserIF를 삭제, 변경
+    4. BoardController.cs 게시글 리스트 쿼리 변경 
+    5. View/Board/*.cshtml 수정 
+    6. BoardController.cs애 create Post 메서드에 사용자데이터 추가 수정 
+
+9. 이력서, 프로젝트, 컨텍트 페이지 구현하기
+    1. Project.cs 모델 생성
+    2. AppDbContext.cs에 DbSet<Project> 추가
+    3. Add-Migration, Update-Database
+    4. ProjectController, View 생성
+    5. Views/Project/Create.cshtml 수정
+    6. ProjectController, Create Post 메서드 수정    
+
+## 14일차(24.07.26) - 결석 
+10. AWS 라이트세일로 웹사이트 공개하기
+11. 자신 컴퓨터 IIS 서버에 웹사이트 올리기
+12. 프로젝트 화면 DB연동하기
+13. Contact 메일보내기(네이버 연동)
+
+## 15일차(24.07.30)
+- ASP.NET Core 포트폴리오 웹사이트, MyPortfolio
+    1. 부트스트랩 템플릿 커스터마이징, 자기 포트폴리오 사이트 만들기
