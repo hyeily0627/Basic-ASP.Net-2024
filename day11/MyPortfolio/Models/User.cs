@@ -18,6 +18,8 @@ namespace MyPortfolio.Models
         [Required]
         public string Password { get; set; }
 
+        // [Required(ErrorMessage = "비밀번호가 일치하지 않습니다.")]
+        // 주석처리 이유 = Nullable인데 Required는 x, 로그인시 충돌 발생 
         public string? PasswordCheck { get; set; }
 
         [MaxLength(15)]
@@ -29,7 +31,8 @@ namespace MyPortfolio.Models
         public DateTime? RegDate { get; set; }
 
         // RelationShip User부모 -> Board 자식 
-        // 한 사람의 사용자가 
-        public virtual ICollection<Board> Board { get; set; }
+        // 한 사람의 사용자가 0 또는 여러개의 게시글을 적을 수 있다
+        public virtual ICollection<Board>? Board { get; set; }
+        // ?를 안쓰면 사용자는 무조건 글을 가져야함!! 
     }
 }

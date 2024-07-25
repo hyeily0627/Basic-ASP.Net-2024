@@ -518,9 +518,9 @@ https://github.com/hyeily0627/Basic-ASP.Net-2024/assets/156732476/fb4f16cd-092f-
         4. Create 액션메서드 내 로직처리 DB에 데이터 입력 
         5. Models/Board.cs Moa
 
-    4. 페이징!!
-    5. 회원가입, 로그인 ...
-    6. 관리자모드/페이지
+    7. 페이징!!
+    8. 회원가입, 로그인 ...
+    9. 관리자모드/페이지
 
 ## 11일차 
 **주석처리 ctrl + k + C** 
@@ -615,7 +615,15 @@ https://github.com/hyeily0627/Basic-ASP.Net-2024/assets/156732476/fb4f16cd-092f-
         13. Register.cshtml 회원가입 페이지 생성
         
 ## 13일차 
-    8. 회원가입, 로그인.... 계속 
+    8. 회원가입, 로그인.... 계속
+        * 참고 
+        - 사진과 같이 초록색으로 뜨는 글씨는 웹에서 따로 보이지 않는 속성 
+
+        ![asp](https://raw.githubusercontent.com/hyeily0627/Basic-ASP.Net-2024/main/images/an0007.png) 
+
+        - input 태그의 asp-for는 HTML로 랜더링 된 뒤 id=와 name으로 변환됨 
+
+        * Program.cs 로그인 세션에 쿠키이름 공백 절대 안됨 
     9. 이력서, 프로젝트, 컨텍트 페이지 구현하기
     10. 관리자모드/페이지
     11. 자신 컴퓨터 IIS 서버에 웹사이트 올리기

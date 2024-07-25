@@ -21,7 +21,7 @@ namespace MyPortfolio
             // 로그인 세션 설정 
             builder.Services.AddSession(options =>
             {
-                options.Cookie.Name = "HyejinSession"; // 앱세션 쿠키 이름 
+                options.Cookie.Name = "HyejinSession"; // 앱세션 쿠키 이름 ** 쿠키이름 공백 절대 안됨
                 options.IdleTimeout = TimeSpan.FromMinutes(20); // 세션지속시간 (20분) 
             }).AddControllersWithViews(); // 세션의 내용을 cshtml에도 적용 
 
